@@ -1,0 +1,36 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input {
+    background: var(--vt-c-black-soft);
+    border: 1px solid var(--vt-c-divider-dark-2);
+    padding: 10px;
+    color: var(--vt-c-text-dark-2);
+    -moz-appearance: textfield;
+}
+
+input:focus {
+    outline: none;
+    color: var(--vt-c-text-dark-1);
+}
+
+button {
+    background: var(--vt-c-black-soft);
+    border: 1px solid var(--vt-c-divider-dark-2);
+    padding: 10px;
+    color: var(--vt-c-text-dark-2);
+    -moz-appearance: button;
+}
+
+div {
+    margin-bottom: 10px;
+    display: grid;
+    grid-template: "left right hidden";
+}
+
+div label {
+    grid-area: "left";
+}
