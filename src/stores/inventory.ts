@@ -1,3 +1,4 @@
+// CR :: unused imports
 import { ref, computed, watch } from 'vue'
 import type { Ref, UnwrapRef } from 'vue'
 import { defineStore } from 'pinia'
@@ -8,6 +9,7 @@ export interface InventoryItem {
     name: string;
     actualAmount: number;
     minimumAmount: number;
+    // CR :: Why is price not required?
     price?: number;
 }
 
@@ -24,6 +26,7 @@ function save(items: InventoryItem[]) {
     localStorage.setItem('inventory', JSON.stringify(items));
 }
 
+// CR :: what's this doing here?
 //type AnyOf<A, B> = A | B;
 type AnyOf<T extends any[]> = T[number];
 
@@ -33,8 +36,10 @@ export const useInventoryStore = defineStore('inventory', {
     state: () => {
         const items: Ref<InventoryItem[]> = ref(load());
 
+        // CR :: i'm getting all of these again after i change one thing in a product and reload
         items.value.push({
             id: "starbucks_coffee",
+            // CR :: Type 'number' is not assignable to type 'string'
             productCode: 304,
             name: "Cup of Starbucks Coffee",
             actualAmount: 10,

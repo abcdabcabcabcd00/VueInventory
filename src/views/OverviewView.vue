@@ -41,6 +41,7 @@ export default {
                 </tr>
             </thead>
             <tr v-for="(item, idx) in items" :key="item.id">
+                <!-- CR :: why are also sending the event? You can put delete_item(idx) here immediately  -->
                 <td class="button-container"><button @click='(evt) => {
                     delete_item(evt, idx);
                 }'>Delete</button></td>
