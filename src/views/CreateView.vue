@@ -12,6 +12,7 @@ export default {
     setup() {
         const store = useInventoryStore();
         const items = store.items;
+        // CR :: you can use reactive here to not have all the different variables
         const productCode = ref("");
         const name = ref("");
         const actualAmount = ref(0);
@@ -28,6 +29,7 @@ export default {
                 price: price.value,
             };
 
+            // CR :: It's not a good thing to change the state directly, actions would be better: https://pinia.vuejs.org/core-concepts/actions.html
             items.push(newItem);
             this.$router.back();
         };
@@ -46,6 +48,7 @@ export default {
 </script>
 <template>
     <div>
+        <!-- CR :: This is almost the same as in EditView, a ProductForm component would be better, so you only type it once -->
         <label for="productName">Name: </label>
         <input
             autocomplete="off"
