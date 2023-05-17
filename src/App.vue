@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import { devtools } from 'vue';
+import { RouterLink, RouterView } from "vue-router";
+import { devtools } from "vue";
 
-import { useInventoryStore } from './stores/inventory.ts';
+import { useInventoryStore } from "./stores/inventory";
 </script>
 
 <template>
@@ -15,11 +15,11 @@ import { useInventoryStore } from './stores/inventory.ts';
         </div>
     </header>
     <div>
-        <RouterView/>
+        <RouterView />
     </div>
 </template>
 
-<style scoped lang="css">
+<style scoped lang="scss">
 header {
     line-height: 1.5;
     max-height: 100vh;
@@ -61,7 +61,7 @@ nav a:first-of-type {
     }
 }
 </style>
-<style lang=scss>
+<style lang="scss">
 nav {
     width: 100%;
     font-size: 1rem;
@@ -73,14 +73,13 @@ nav {
 
 nav a {
     width: 150px;
-//    height: 50px;
+    //    height: 50px;
     display: inline-block;
     padding: 0 1rem;
     border-left: 1px solid var(--color-border);
 }
 
-nav a.router-link-exact-active
-{
+nav a.router-link-exact-active {
     color: var(--color-text);
 }
 

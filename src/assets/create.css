@@ -9,7 +9,7 @@ input {
     border: 1px solid var(--vt-c-divider-dark-2);
     padding: 10px;
     color: var(--vt-c-text-dark-2);
-    -moz-appearance: textfield;
+    /* -moz-appearance: textfield; */
 }
 
 input:focus {
@@ -22,7 +22,7 @@ button {
     border: 1px solid var(--vt-c-divider-dark-2);
     padding: 10px;
     color: var(--vt-c-text-dark-2);
-    -moz-appearance: button;
+    /* -moz-appearance: button; */
 }
 
 div {

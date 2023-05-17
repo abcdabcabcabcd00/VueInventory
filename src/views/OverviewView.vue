@@ -1,9 +1,9 @@
-<script lang=ts>
+<script lang="ts">
 import { useInventoryStore } from "@/stores/inventory";
 import NavHead from "@/components/NavHead.vue";
 
 export default {
-    components: {NavHead},
+    components: { NavHead },
     setup() {
         const items = useInventoryStore().items;
         return { items };
@@ -15,19 +15,19 @@ export default {
                 name: "edit",
                 params: {
                     index: idx.toString(),
-                }
+                },
             });
         },
         delete_item(event, idx) {
             this.items.splice(idx, 1);
-        }
-    }
+        },
+    },
 };
 </script>
 
 <template>
     <div id="content">
-        <NavHead/>
+        <NavHead />
         <table>
             <thead>
                 <tr>
@@ -41,12 +41,28 @@ export default {
                 </tr>
             </thead>
             <tr v-for="(item, idx) in items" :key="item.id">
-                <td class="button-container"><button @click='(evt) => {
-                    delete_item(evt, idx);
-                }'>Delete</button></td>
-                <td class="button-container"><button @click='(evt) => {
-                    edit(evt, idx);
-                }'>Edit</button></td>
+                <td class="button-container">
+                    <button
+                        @click="
+                            (evt) => {
+                                delete_item(evt, idx);
+                            }
+                        "
+                    >
+                        Delete
+                    </button>
+                </td>
+                <td class="button-container">
+                    <button
+                        @click="
+                            (evt) => {
+                                edit(evt, idx);
+                            }
+                        "
+                    >
+                        Edit
+                    </button>
+                </td>
                 <td>{{ item.name }}</td>
                 <td>{{ item.productCode }}</td>
                 <td>{{ item.actualAmount }}</td>
@@ -57,4 +73,4 @@ export default {
     </div>
 </template>
 
-<style scoped src="@/assets/overview.css"/>
+<style scoped src="@/assets/overview.css" />

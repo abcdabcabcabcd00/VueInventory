@@ -1,10 +1,12 @@
-<script lang=ts>
+<script lang="ts">
 import { useInventoryStore } from "@/stores/inventory";
 import type { InventoryItem } from "@/stores/inventory";
-import type { Ref } from 'vue';
-import { ref } from 'vue';
+import type { Ref } from "vue";
+import { ref } from "vue";
 
-const generateId = (): string => Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+const generateId = (): string =>
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15);
 
 export default {
     setup() {
@@ -21,39 +23,70 @@ export default {
                 id: generateId(),
                 productCode: productCode.value,
                 name: name.value,
-                actualAmount:  actualAmount.value,
+                actualAmount: actualAmount.value,
                 minimumAmount: minimumAmount.value,
-                price: price.value
+                price: price.value,
             };
 
             items.push(newItem);
             this.$router.back();
         };
 
-        return { items, createItem, productCode, name, actualAmount, minimumAmount, price };
+        return {
+            items,
+            createItem,
+            productCode,
+            name,
+            actualAmount,
+            minimumAmount,
+            price,
+        };
     },
 };
 </script>
 <template>
     <div>
         <label for="productName">Name: </label>
-        <input autocomplete="off" type="text" v-model.trim="name" id="productName">
-        <br>
+        <input
+            autocomplete="off"
+            type="text"
+            v-model.trim="name"
+            id="productName"
+        />
+        <br />
         <label for="productCode">Product code: </label>
-        <input autocomplete="off" type="text" v-model.trim="productCode" id="productCode">
-        <br>
+        <input
+            autocomplete="off"
+            type="text"
+            v-model.trim="productCode"
+            id="productCode"
+        />
+        <br />
         <label for="actualAmount">Actual Amount: </label>
-        <input autocomplete="off" type="number" v-model.number="actualAmount" id="actualAmount">
-        <br>
+        <input
+            autocomplete="off"
+            type="number"
+            v-model.number="actualAmount"
+            id="actualAmount"
+        />
+        <br />
         <label for="minimumAmount">Minimum Amount: </label>
-        <input autocomplete="off" type="number" v-model.number="minimumAmount" id="minimumAmount">
-        <br>
+        <input
+            autocomplete="off"
+            type="number"
+            v-model.number="minimumAmount"
+            id="minimumAmount"
+        />
+        <br />
         <label for="price">Price: </label>
-        <input autocomplete="off" type="number" v-model.number="price" id="price">
+        <input
+            autocomplete="off"
+            type="number"
+            v-model.number="price"
+            id="price"
+        />
     </div>
-    <button @click="createItem">
-        Create!
-    </button>
+    <button @click="createItem">Create!</button>
 </template>
 
-<style scoped lang=scss src="@/assets/create.css"/>
+<style scoped lang="scss" src="@/assets/create.css" />

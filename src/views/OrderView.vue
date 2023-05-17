@@ -1,9 +1,9 @@
-<script lang=ts>
+<script lang="ts">
 import { useInventoryStore } from "@/stores/inventory";
 import NavHead from "@/components/NavHead.vue";
 
 export default {
-    components: {NavHead},
+    components: { NavHead },
     setup() {
         const items = useInventoryStore().items;
         return { items };
@@ -13,7 +13,7 @@ export default {
 
 <template>
     <div id="content">
-        <NavHead/>
+        <NavHead />
         <table>
             <thead>
                 <tr>
@@ -26,7 +26,11 @@ export default {
                     <td>Price</td>
                 </tr>
             </thead>
-            <tr v-for="item in items" :key="item.id" :class="{hidden: !(item.actualAmount < item.minimumAmount)}">
+            <tr
+                v-for="item in items"
+                :key="item.id"
+                :class="{ hidden: !(item.actualAmount < item.minimumAmount) }"
+            >
                 <td class="button-container"><button>Order</button></td>
                 <td>{{ item.minimumAmount - item.actualAmount }}</td>
                 <td>{{ item.name }}</td>
@@ -38,4 +42,4 @@ export default {
         </table>
     </div>
 </template>
-<style scoped src="@/assets/overview.css"/>
+<style scoped src="@/assets/overview.css" />
